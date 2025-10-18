@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Malik | Data Analyst & Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E293B',
+                        accent: '#EC4899',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #3B82F6;
+            --secondary: #1E293B;
+            --accent: #EC4899;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-badge {
+            transition: all 0.2s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            left: -8px;
+            top: 24px;
+            background: var(--primary);
+            border: 3px solid white;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            left: 0;
+            top: 40px;
+            background: #E2E8F0;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .scroll-down {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-90 backdrop-blur-md z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">Abdul Malik<span class="text-primary">.</span></a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-primary">Home</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-primary">About</a>
+                <a href="#experience" class="nav-link text-gray-700 hover:text-primary">Experience</a>
+                <a href="#skills" class="nav-link text-gray-700 hover:text-primary">Skills</a>
+		<a href="#certificates" class="nav-link text-gray-700 hover:text-primary">Certificates</a>
+                <a href="#projects" class="nav-link text-gray-700 hover:text-primary">Projects</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-primary">Contact</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="menu-toggle" class="flex flex-col space-y-2">
+                    <span class="block w-6 h-0.5 bg-gray-800"></span>
+                    <span class="block w-6 h-0.5 bg-gray-800"></span>
+                    <span class="block w-6 h-0.5 bg-gray-800"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen pt-24 flex items-center">
+        <div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">Hi, I'm <span class="text-primary">M.N. Abdul Malik</span></h1>
+                <h2 class="text-2xl md:text-3xl font-medium text-gray-600 mb-6">Data Analyst & Developer</h2>
+                    <p class="text-gray-600 mb-8 max-w-lg">Data Analyst passionate about turning raw data into meaningful insights. Skilled in Python, SQL, R, and data visualization with Tableau and Power BI.</p>
+<div class="flex space-x-4">
+                    <a href="#projects" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-700 transition duration-300 shadow-md">View Work</a>
+                    <a href="#contact" class="px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary-50 transition duration-300">Contact Me</a>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-100 shadow-xl bg-gray-200 flex items-center justify-center floating">
+                        <img src = "C:\Users\DELL\Documents\portfolio test\\profile.jpg"<img src = "C:\Users\DELL\Documents\portfolio test\\profile.jpg" alt="Profile Image" class="w-full h-full object-cover"
+                        <i class="fas fa-user text-6xl text-gray-400"></i>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-down">
+            <a href="#about" class="text-gray-500 hover:text-primary">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">About <span class="text-primary">Me</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Get to know more about my background, education, and professional journey</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-primary-100 shadow-lg bg-gray-200 flex items-center justify-center">
+                        <img src = "C:\Users\DELL\Documents\portfolio test\\profile.jpg" alt="Profile Image" class="w-full h-full object-cover" >
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Who am I?</h3>
+                    <p class="text-gray-600 mb-6">Data Analyst with a strong foundation in Statistical Modeling and Programming, built through a BSc in Physical Science (Mathematics, Computer Science, and Statistics). Recently completed the Google Data Analytics Professional Certificate, gaining hands-on experience in Python, SQL, R, and BigQuery for data cleaning, transformation, and analysis. Skilled in deriving actionable insights from complex datasets and presenting them through impactful visualizations and dashboards using Tableau and Power BI. Strong communicator with a proven ability to translate analytical findings into clear, data-driven decisions.</p>
+                    
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="Resume.pdf" download target = "_blank" class="px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-700 transition duration-300 shadow-md">
+                            <i class="fas fa-download mr-2"></i> Download CV
+                        </a>
+                        <a href="https://linkedin.com/in/mn-abdulmalik" target = "_blank" class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition duration-300">
+                            <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Work <span class="text-primary">Experience</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-8">
+                <!-- Experience 1 -->
+                <div class="relative pl-8 timeline-item">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-primary">Online Math Tutor</h3>
+                        <p class="text-gray-800 font-medium">Third Space Global | Jan 2023 - Jul 2025</p>
+                        <ul class="mt-4 space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                                <span>Tutored UK and USA students in mathematical concepts for SAT and GCSE exams</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                                <span>Developed customized learning plans to improve student performance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="relative pl-8 timeline-item">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-primary">Advanced Level Physics Tutor</h3>
+                        <p class="text-gray-800 font-medium">Self-Employed | 2020 - 2022</p>
+                        <ul class="mt-4 space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                                <span>Provided personalized A/L Physics tutoring to high school students</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                                <span>Helped students improve academic performance through tailored sessions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">My <span class="text-primary">Skills</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Technologies and tools I'm proficient in</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Programming Languages -->
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fab fa-python text-4xl text-blue-500 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Python</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fab fa-js text-4xl text-yellow-400 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">JavaScript</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-database text-4xl text-blue-700 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">SQL</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fab fa-r-project text-4xl text-blue-600 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">R</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fab fa-react text-4xl text-blue-400 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">React</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fab fa-node-js text-4xl text-green-500 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Node.js</h4>
+                </div>
+                
+                <!-- Data Tools -->
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-chart-line text-4xl text-green-500 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Tableau</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-chart-bar text-4xl text-yellow-600 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Power BI</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-cloud text-4xl text-yellow-500 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Google BigQuery</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-file-excel text-4xl text-green-600 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Excel</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fab fa-git-alt text-4xl text-orange-500 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Git</h4>
+                </div>
+                
+                <div class="skill-badge bg-white p-6 rounded-lg shadow-sm text-center">
+                    <i class="fas fa-server text-4xl text-gray-500 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">MongoDB</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Certificate Section -->
+	<section id="certificates" class="py-20 bg-white">
+    <a href="https://drive.google.com/file/d/1Ya53Ce9U4To6-VXgtVlaDQzs8Fl0BLfH/view?usp=drive_link" target ="_blank"
+	
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">My <span class="text-primary">Certificates</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">A selection of my recent work and research projects</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-5xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Google Data Analytics</h3>
+                        <p class="text-gray-600 mb-4">Certified by Google in Data Analytics with expertise in R, SQL, and visualization tools like Tablaeu and RStudio. Trained to analyze, interpret and communicate data-driven stories effectively.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Data Analytics</span>
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full"> Data Visualization </span>
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full"> MySQL </span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div></a>
+    </section>
+
+
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">My <span class="text-primary">Projects</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">A selection of my recent work and research projects</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+		
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-5xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">E-commerce Webstore</h3>
+                        <p class="text-gray-600 mb-4">Built a full-stack electronics webstore using Java, HTML/CSS, and PHP with MySQL database.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Java</span>
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">PHP</span>
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-gavel text-5xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Online Auction System</h3>
+                        <p class="text-gray-600 mb-4">Developed a bidding platform connecting farmers with buyers using React, TypeScript, and Spring Boot.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">React</span>
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Spring Boot</span>
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+		<!-- Project 3 -->
+		 <a href="https://drive.google.com/file/d/1O5ZztVx7D2sPI7wANyg83wfGIl2P8gHA/view" target="_blank" 
+               	 <div class="project-card bg-white rounded-lg overflow-hidden">
+                     <div class="h-48 bg-gray-200 flex items-center justify-center">
+                       	 <i class="fas fa-chart-pie text-5xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6">
+                       	 <h3 class="text-xl font-semibold text-gray-800 mb-2">Acne Impact Research</h3>
+                         <p class="text-gray-600 mb-4">Statistical analysis study on acne's impact on quality of life among university students.</p>
+                       	 <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">R</span>
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">SPSS</span>
+                            <span class="text-xs px-3 py-1 bg-blue-100 text-blue-800 rounded-full">Data Analysis</span>
+                        </div>
+                    </div>
+                </div> </a>
+		
+
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Get In <span class="text-primary">Touch</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Feel free to reach out for collaborations or just to say hi!</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <form action="https://formspree.io/f/meorpbep" method="POST" class="max-w-xl mx-auto space-y-6">
+                <input type="text" name="name" placeholder="Your Name" required class="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500">
+                <input type="email" name="email" placeholder="Your Email" required class="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500">
+                <textarea name="message" rows="5" placeholder="Your Message" required class="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500"></textarea>
+                <button type="submit" class="w-full bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition">Send Message</button>
+            </form>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">mn.abdulmalik28@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">+94 76 763 3225</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fab fa-github text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">GitHub</h4>
+                                    <p class="text-gray-600">github.com/abdulmalik28</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fab fa-linkedin-in text-primary mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">LinkedIn</h4>
+                                    <p class="text-gray-600">linkedin.com/in/mn-abdulmalik</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 bg-secondary text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2025 M.N. Abdul Malik. All rights reserved.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://github.com/abdulmalik28" target = "_blank" class="hover:text-primary transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/mn-abdulmalik" target = "_blank" class="hover:text-primary transition duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
