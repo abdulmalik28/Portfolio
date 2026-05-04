@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>M.N. Abdul Malik | Curator.Dev</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "brand-light": "#cdf3ff",
+                        "brand-primary": "#67B2D8",
+                        "brand-primary-hover": "#028db9",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#001f29",
+                        "on-secondary-fixed-variant": "#004d62",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#cdf3ff",
+                        "surface-variant": "#d8e3fb",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-primary-fixed-variant": "#004d67",
+                        "on-primary-container": "#004c66",
+                        "surface-container-low": "#f0f3ff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#bbe9ff",
+                        "surface": "#f9f9ff",
+                        "tertiary-fixed-dim": "#62d4f8",
+                        "inverse-on-surface": "#ecf1ff",
+                        "on-surface-variant": "#3d484f",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001e2b",
+                        "tertiary-container": "#4cc2e5",
+                        "surface-bright": "#f9f9ff",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#006687",
+                        "primary-fixed-dim": "#74d1ff",
+                        "primary-fixed": "#c1e8ff",
+                        "on-tertiary-fixed": "#001f28",
+                        "secondary": "#006782",
+                        "secondary-fixed-dim": "#5dd4ff",
+                        "on-secondary-container": "#00546b",
+                        "surface-container-highest": "#d8e3fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#111c2d",
+                        "tertiary-fixed": "#b5ebff",
+                        "background": "#f9f9ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#263143",
+                        "tertiary": "#00677e",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#02a6db",
+                        "outline": "#6d7980",
+                        "surface-dim": "#cfdaf2",
+                        "outline-variant": "#bcc8d1",
+                        "surface-container-high": "#dee8ff",
+                        "primary-container": "#03c2fe",
+                        "inverse-primary": "#74d1ff",
+                        "on-tertiary-container": "#004d5f",
+                        "surface-container": "#e7eeff",
+                        "on-background": "#111c2d"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px",
+                        "eight": "0.5rem"
+                    },
+                    boxShadow: {
+                        'ultra-elevated': '0 35px 60px -15px rgba(0, 102, 135, 0.15)',
+                        'floating-nav': '0 20px 40px -10px rgba(0, 31, 41, 0.12)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bg-soft-gradient {
+            background: linear-gradient(135deg, #cdf3ff 0%, #ffffff 100%);
+        }
+
+        .btn-primary {
+            background-color: #02a6db;
+            color: #ffffff;
+            border-radius: 0.5rem;
+            /* ROUND_EIGHT */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            background-color: #028db9;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: #f0f3ff;
+            color: #006687;
+            border-radius: 0.5rem;
+            /* ROUND_EIGHT */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e2e8ff;
+            transform: translateY(-1px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(0, 102, 135, 0.05);
+        }
+
+        .glass-card-hover:hover {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 40px 0 rgba(0, 102, 135, 0.1);
+        }
+
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body class="bg-soft-gradient font-body text-on-surface min-h-screen">
+
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-6xl z-50 nav-glass shadow-floating-nav rounded-2xl transition-all duration-500 hover:shadow-ultra-elevated hover:bg-white/60">
+        <nav class="flex justify-between items-center py-4 mx-auto px-8">
+            <div class="text-2xl font-bold tracking-tighter text-sky-900"><a href="#">Abdul Malik</a></div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
+                    href="#work">Work</a>
+                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
+                    href="#skills">Skills</a>
+                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
+                    href="#projects">Projects</a>
+                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
+                    href="#certifications">Certifications</a>
+                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
+                    href="#contact">Contact</a>
+            </div>
+            <button class="md:hidden text-on-surface">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </nav>
+    </header>
+    <main class="pt-32">
+
+        <!-- Hero Section -->
+        <section class="relative min-h-[85vh] flex items-center px-8 max-w-7xl mx-auto overflow-hidden">
+            <div class="z-10 w-full md:w-2/3">
+                <h1
+                    class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter text-on-surface mb-6 leading-none">
+                    M.N. Abdul Malik.
+                </h1>
+                <p class="font-headline text-2xl md:text-3xl font-light text-slate-500 mb-10 max-w-xl">
+                    Translating complex data into <span class="text-primary font-medium italic">functional
+                        narratives</span> and insightful<span
+                        class="text-primary font-medium italic">visualizations</span>.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a class="btn-primary px-8 py-4 font-semibold text-lg inline-flex items-center justify-center min-w-[160px]"
+                        href="#projects">View Work</a>
+                    <a class="btn-secondary px-8 py-4 font-semibold text-lg inline-flex items-center justify-center min-w-[160px]"
+                        href="#contact">Contact Me</a>
+                </div>
+            </div>
+            <!-- Decorative Element -->
+            <div
+                class="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-brand-light/40 rounded-full blur-[120px]">
+            </div>
+            <div class="absolute right-20 top-1/3 w-64 h-64 bg-primary-container/20 rounded-full blur-[100px]"></div>
+        </section>
+        <!-- About Section -->
+        <section class="py-24 px-8 bg-white/30">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative group">
+                    <div class="aspect-square rounded-2xl overflow-hidden bg-surface-container-highest">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            data-alt="Professional portrait of a male data analyst"
+                            src="C:\Users\DELL\Documents\Portfolio\\profile.jpg" />
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-primary p-4 rounded-xl shadow-xl flex items-center justify-center text-white">
+                        <span class="text-center font-headline font-bold text-sm">4+ Years Experience</span>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="font-headline text-4xl font-light mb-8 text-on-surface">Precision in <span
+                            class="font-bold">Execution</span></h2>
+                    <p class="text-lg text-on-surface-variant leading-relaxed mb-10">
+                        As a Data Analyst and Developer, I specialize in bridging the gap between raw information and
+                        actionable insights. My approach combines rigorous mathematical logic with modern web
+                        technologies to build tools that are as beautiful as they are efficient.
+                    </p>
+                    <div class="flex gap-4"><a href="Resume.pdf" download target="_blank"
+                            class="btn-primary flex items-center gap-2 px-6 py-3 font-semibold">
+                            <span class="material-symbols-outlined text-xl">download</span>
+                            Download CV
+                        </a>
+                        <a href="https://linkedin.com/in/mn-abdulmalik" target="_blank"
+                            class="btn-secondary flex items-center gap-2 px-6 py-3 font-semibold">
+                            <span class="material-symbols-outlined text-xl">link</span>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Work Experience -->
+        <section class="py-24 px-8 max-w-7xl mx-auto" id="work">
+            <h2 class="font-headline text-4xl font-bold mb-16 text-on-surface">Experience</h2>
+            <div class="space-y-12">
+                <!-- Current Role -->
+                <div class="grid md:grid-cols-12 items-start gap-8">
+                    <div class="md:col-span-4 sticky top-32">
+                        <h3 class="font-headline text-2xl font-bold text-primary">Data Analyst</h3>
+                        <p class="text-on-surface-variant font-medium">DIMO</p>
+                        <p class="text-sm font-label text-slate-400 mt-2 uppercase">Dec 2025 - Present</p>
+                    </div>
+                    <div
+                        class="md:col-span-8 p-8 bg-white/60 backdrop-blur-sm rounded-2xl border-l-4 border-brand-primary shadow-sm">
+                        <p class="text-on-surface-variant leading-relaxed">
+                            Spearheading data-driven initiatives to optimize operational efficiency. Developing custom
+                            internal dashboards and predictive models to forecast market trends and inventory
+                            requirements.
+                        </p>
+                    </div>
+                </div>
+                <!-- Role 2 -->
+                <div class="grid md:grid-cols-12 items-start gap-8">
+                    <div class="md:col-span-4 sticky top-32">
+                        <h3 class="font-headline text-2xl font-bold text-slate-800">Online Math Tutor</h3>
+                        <p class="text-on-surface-variant font-medium">Third Space Global</p>
+                        <p class="text-sm font-label text-slate-400 mt-2 uppercase">Jan 2023 - Jul 2025</p>
+                    </div>
+                    <div
+                        class="md:col-span-8 p-8 bg-white/40 backdrop-blur-sm rounded-2xl border-l-4 border-brand-light shadow-sm">
+                        <p class="text-on-surface-variant leading-relaxed">
+                            Delivered high-impact virtual mathematics instruction to international students. Simplified
+                            complex algebraic and geometric concepts through interactive digital tools and personalized
+                            learning paths.
+                        </p>
+                    </div>
+                </div>
+                <!-- Role 3 -->
+                <div class="grid md:grid-cols-12 items-start gap-8">
+                    <div class="md:col-span-4 sticky top-32">
+                        <h3 class="font-headline text-2xl font-bold text-slate-800">Physics Tutor</h3>
+                        <p class="text-on-surface-variant font-medium">Advanced Level</p>
+                        <p class="text-sm font-label text-slate-400 mt-2 uppercase">2020 - 2022</p>
+                    </div>
+                    <div
+                        class="md:col-span-8 p-8 bg-white/40 backdrop-blur-sm rounded-2xl border-l-4 border-slate-200 shadow-sm">
+                        <p class="text-on-surface-variant leading-relaxed">
+                            Guided advanced-level students through intensive physics curricula. Developed comprehensive
+                            lesson plans focusing on mechanics, electromagnetism, and thermodynamic principles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Glassmorphism Section Container with Decorative Background -->
+        <div class="relative overflow-hidden">
+            <!-- Background Decorative Blobs -->
+            <div
+                class="absolute top-1/4 left-0 w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] -z-10">
+            </div>
+            <div
+                class="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-brand-light/30 rounded-full blur-[120px] -z-10">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-200/20 rounded-full blur-[150px] -z-10">
+            </div>
+            <!-- Skills Section -->
+            <section class="py-24 px-8 relative" id="skills">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="font-headline text-4xl font-bold mb-16 text-center text-on-surface">Technical Arsenal
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                        <div
+                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-4">database</span>
+                            <span
+                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">SQL</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-4">terminal</span>
+                            <span
+                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Python</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-4">bar_chart</span>
+                            <span
+                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Tableau</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-4">code</span>
+                            <span
+                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">React</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-4">monitoring</span>
+                            <span
+                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Power
+                                BI</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-4">javascript</span>
+                            <span
+                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Projects Section -->
+            <section class="py-24 px-8 max-w-7xl mx-auto relative" id="projects">
+                <h2 class="font-headline text-4xl font-bold mb-16 text-on-surface">Curated Work</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div
+                        class="group glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 flex flex-col">
+                        <div class="h-48 overflow-hidden relative">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="E-commerce webstore dashboard interface"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSq1juVb3KeETWS0_2W4rqxRPY53y1HaMmM_Wp1wMJygA4MxUt3wQ7NN-0XtusMw7evDs23sviMloikb7ycm9mxHZ9Z86IXe9FhSsIX0ZA5TYys58rUA6Mkjg1zJ8k6WmALs_NQvd9I1BqqHqAqN3oQ4-aPFQj-sW1x4aIlUIQwuZtoHbmepoAF7ZrFqD80Xm4J54mzdZDhA4awJ7ascFhWwZb-qzqnUEXbYnE8-LGVz68BZpG2_MPcUg3i8pmkMijZW-xycBDSEI" />
+                            <div
+                                class="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Web
+                                    Dev</span>
+                                <span
+                                    class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Full-Stack</span>
+                            </div>
+                            <h3 class="font-headline text-xl font-bold mb-3 text-on-surface">E-commerce Webstore</h3>
+                            <p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
+                                A robust digital storefront featuring dynamic cart management, secure checkout, and a
+                                real-time inventory tracking system.
+                            </p>
+                            <div class="mt-auto pt-4 flex justify-between items-center border-t border-white/20">
+                                <a class="text-primary font-bold text-sm flex items-center gap-1 group/link" href="#">
+                                    View Case Study
+                                    <span
+                                        class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div
+                        class="group glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 flex flex-col">
+                        <div class="h-48 overflow-hidden relative">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Data visualization graphs showing market analysis"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc9Ko_JMO8oqWYlvJewEE6GkSkPzdprjXvlWCUeElv0vhsFivDwGGTg6Qn2IfDSWbZl9EPu7n3sfaj7etsobHwQen9-F8FnTyCozUCWpAm3AHfbfXC99JszjnjMT9HmDyY0AZ-GhNUjgNqIluQgkXLQBy2-7OOsi8hx_ieUdMnaIOGZf-AM7juYxuHq0W11jEwlFmBlwU7hk0WrIzLgYs6VyCpqx2eqF3IrZJGzgU8aQQ1aHNcC839av3JWSJgTCPmSPE1JyOW-vk" />
+                            <div
+                                class="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Data
+                                    Analysis</span>
+                            </div>
+                            <h3 class="font-headline text-xl font-bold mb-3 text-on-surface">Acne Impact Research</h3>
+                            <p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
+                                Statistical analysis of dermatological data to identify correlations between lifestyle
+                                factors and skincare treatment outcomes.
+                            </p>
+                            <div class="mt-auto pt-4 flex justify-between items-center border-t border-white/20">
+                                <a class="text-primary font-bold text-sm flex items-center gap-1 group/link"
+                                    href="https://drive.google.com/file/d/1O5ZztVx7D2sPI7wANyg83wfGIl2P8gHA/view"
+                                    target="_blank">
+                                    View Analysis
+                                    <span
+                                        class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div
+                        class="group glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 flex flex-col">
+                        <div class="h-48 overflow-hidden relative">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Stock market auction digital platform"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaNA7SyHsPbFivAAKo9-0pM-ggQi9sjymeOjy2heLD2SDRFNRAy8BlpAQzIy__5FWgn5TX4V-WG5wOhabcxS5yZuJoFjHoXU39UbOCF7RtVlz6q_tI-uUgagPeEySjsuUO_pIfrWiSLt7h01AIKz3raGUdweP6-hyTiZcUGtrbrR1L_XyCNja-zRpYW4UFpTrkRkPiKtxnZY6N7mQvo5arNwUz7GnkYoXOWhYWdI-0pxYBMpvqyL-EbMN9yV6kYfAsET-khflYoUo" />
+                            <div
+                                class="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Data
+                                    Analysis</span>
+                            </div>
+                            <h3 class="font-headline text-xl font-bold mb-3 text-on-surface">Online Auction System</h3>
+                            <p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
+                                A low-latency bidding engine utilizing WebSocket for real-time updates and an automated
+                                high-bidder resolution logic.
+                            </p>
+                            <div class="mt-auto pt-4 flex justify-between items-center border-t border-white/20">
+                                <a class="text-primary font-bold text-sm flex items-center gap-1 group/link" href="#">
+                                    View Repository
+                                    <span
+                                        class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Certifications Section -->
+            <section class="py-24 px-8 relative" id="certifications">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="font-headline text-4xl font-bold mb-16 text-on-surface">Certifications</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Certificate Card -->
+                        <div
+                            class="group glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 flex flex-col">
+                            <div class="h-48 bg-white/30 flex items-center justify-center p-8 relative overflow-hidden">
+                                <span
+                                    class="material-symbols-outlined text-8xl text-brand-primary/10 absolute -right-4 -bottom-4">verified_user</span>
+                                <div class="z-10 text-center">
+                                    <img class="w-20 h-20 mx-auto rounded-lg mb-4 shadow-sm bg-white p-2"
+                                        data-alt="Google certification badge icon"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwUgF9XS_vvOF7PKLduFXfH5Vuv-tsEkoD77gGoYq4szg4qB0H0b24zxUOY9SwIvY0qhJqSjyIo2uilBbv-ccVgp7fIIvJ1EjS96WHDzFSjU_qFqWlSLqjEIUWMWUqa2hVaBtNzBLlOYNQagt_ULtc32kSFowReCbdiOBiK4QYRcrotvc8SLCKiYhVCIWEZi2c6CCZa1Sf5tRGNApLqpQor3163HClJJ_mowy4TPcXYBbVEG44t2CXaAmhxuGAg5_pu5_pXx5iZQk" />
+                                </div>
+                            </div>
+                            <div class="p-8 flex-grow flex flex-col">
+                                <div class="flex gap-2 mb-4">
+                                    <span
+                                        class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Google
+                                        Certified</span>
+                                </div>
+                                <h3 class="font-headline text-xl font-bold mb-3 text-on-surface">Data Analytics
+                                    Certificate</h3>
+                                <p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
+                                    Verified professional expertise in data cleaning, visualization, R programming, and
+                                    decision-making processes by Google.
+                                </p><a
+                                    href="https://drive.google.com/file/d/1Ya53Ce9U4To6-VXgtVlaDQzs8Fl0BLfH/view?usp=drive_link"
+                                    target="_blank">
+                                    <div class="mt-auto pt-4 border-t border-white/20">
+
+                                        <button class="w-full py-3 btn-secondary font-bold text-sm">Verify
+                                            Credentials</button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </section>
+        </div>
+        <!-- Contact Section -->
+        <section class="py-32 px-8" id="contact">
+            <div class="max-w-7xl mx-auto">
+                <div
+                    class="rounded-[2.5rem] p-8 md:p-16 flex flex-col md:flex-row gap-16 shadow-ultra-elevated scale-[1.02] transition-all duration-500 backdrop-blur-2xl glass-card">
+                    <div class="md:w-1/2">
+                        <h2
+                            class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter mb-6 text-on-surface">
+                            Let's build something <span class="text-brand-primary">precise.</span></h2>
+                        <p class="text-lg text-on-surface-variant mb-12 max-w-md">
+                            Open to opportunities in data analysis, including data-driven projects, business
+                            intelligence, and analytical consulting, with a focus on transforming data into actionable
+                            insights.
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center text-brand-primary shadow-md">
+                                    <span class="material-symbols-outlined">mail</span>
+                                </div>
+                                <span class="font-semibold text-on-surface">mn.abdulmalik28@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center text-brand-primary shadow-md">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                </div>
+                                <span class="font-semibold text-on-surface">Kurunegala, Sri Lanka</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 glass-card p-8 rounded-2xl shadow-lg">
+                        <form action="https://formspree.io/f/meorpbep" method="POST" class="max-w-xl mx-auto space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+
+                                    <label class="text-xs font-bold font-label uppercase text-slate-400">Name</label>
+                                    <input type="text"
+                                        class="w-full bg-white/50 border-none rounded-xl focus:ring-2 focus:ring-brand-primary py-3 px-4"
+                                        placeholder="First Last" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold font-label uppercase text-slate-400">Email</label>
+                                    <input type="email"
+                                        class="w-full bg-white/50 border-none rounded-xl focus:ring-2 focus:ring-brand-primary py-3 px-4"
+                                        placeholder="example@gmail.com" />
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold font-label uppercase text-slate-400">Message</label>
+                                <textarea name="message" rows="4"
+                                    class="w-full bg-white/50 border-none rounded-xl focus:ring-2 focus:ring-brand-primary py-3 px-4"
+                                    placeholder="Tell me about ..."></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full py-4 btn-primary font-bold text-lg shadow-lg hover:shadow-xl">Send
+                                Message</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full border-t border-brand-light/30 bg-white/40 backdrop-blur-sm">
+        <div class="flex flex-col md:flex-row justify-between items-center py-12 px-8 max-w-7xl mx-auto">
+            <div class="mb-8 md:mb-0">
+                <div class="text-lg font-black text-sky-900 mb-2">Portfolio</div>
+                <p class="font-inter text-sm tracking-wide text-slate-500">© Abdul Malik</p>
+            </div>
+            <div class="flex gap-8">
+                <a class="text-slate-500 hover:text-sky-500 underline-offset-4 hover:underline transition-opacity"
+                    href="https://linkedin.com/in/mn-abdulmalik">LinkedIn</a>
+                <a class="text-slate-500 hover:text-sky-500 underline-offset-4 hover:underline transition-opacity"
+                    href="https://x.com/xnavailabl3">Twitter</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
