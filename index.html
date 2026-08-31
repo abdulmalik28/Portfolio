@@ -1,578 +1,1326 @@
 <!DOCTYPE html>
-
-<html class="scroll-smooth" lang="en">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>M.N. Abdul Malik | Curator.Dev</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "brand-light": "#cdf3ff",
-                        "brand-primary": "#67B2D8",
-                        "brand-primary-hover": "#028db9",
-                        "error-container": "#ffdad6",
-                        "on-secondary-fixed": "#001f29",
-                        "on-secondary-fixed-variant": "#004d62",
-                        "on-error": "#ffffff",
-                        "secondary-container": "#cdf3ff",
-                        "surface-variant": "#d8e3fb",
-                        "on-tertiary-fixed-variant": "#004e60",
-                        "on-primary-fixed-variant": "#004d67",
-                        "on-primary-container": "#004c66",
-                        "surface-container-low": "#f0f3ff",
-                        "error": "#ba1a1a",
-                        "secondary-fixed": "#bbe9ff",
-                        "surface": "#f9f9ff",
-                        "tertiary-fixed-dim": "#62d4f8",
-                        "inverse-on-surface": "#ecf1ff",
-                        "on-surface-variant": "#3d484f",
-                        "on-primary": "#ffffff",
-                        "on-primary-fixed": "#001e2b",
-                        "tertiary-container": "#4cc2e5",
-                        "surface-bright": "#f9f9ff",
-                        "on-error-container": "#93000a",
-                        "surface-tint": "#006687",
-                        "primary-fixed-dim": "#74d1ff",
-                        "primary-fixed": "#c1e8ff",
-                        "on-tertiary-fixed": "#001f28",
-                        "secondary": "#006782",
-                        "secondary-fixed-dim": "#5dd4ff",
-                        "on-secondary-container": "#00546b",
-                        "surface-container-highest": "#d8e3fb",
-                        "surface-container-lowest": "#ffffff",
-                        "on-surface": "#111c2d",
-                        "tertiary-fixed": "#b5ebff",
-                        "background": "#f9f9ff",
-                        "on-secondary": "#ffffff",
-                        "inverse-surface": "#263143",
-                        "tertiary": "#00677e",
-                        "on-tertiary": "#ffffff",
-                        "primary": "#02a6db",
-                        "outline": "#6d7980",
-                        "surface-dim": "#cfdaf2",
-                        "outline-variant": "#bcc8d1",
-                        "surface-container-high": "#dee8ff",
-                        "primary-container": "#03c2fe",
-                        "inverse-primary": "#74d1ff",
-                        "on-tertiary-container": "#004d5f",
-                        "surface-container": "#e7eeff",
-                        "on-background": "#111c2d"
-                    },
-                    fontFamily: {
-                        "headline": ["Manrope", "sans-serif"],
-                        "body": ["Inter", "sans-serif"],
-                        "label": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "2xl": "1rem",
-                        "full": "9999px",
-                        "eight": "0.5rem"
-                    },
-                    boxShadow: {
-                        'ultra-elevated': '0 35px 60px -15px rgba(0, 102, 135, 0.15)',
-                        'floating-nav': '0 20px 40px -10px rgba(0, 31, 41, 0.12)',
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M.N. Abdul Malik — Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- Tokens ---------- */
+    :root {
+      --black: #000000;
+      --ink: #1d1d1f;
+      --white: #ffffff;
+      --paper: #f5f5f7;
+      --gray: #6e6e73;
+      --line: #d2d2d7;
+      --blue: #0071e3;
+      --blue-dim: #0077ed;
+      --ease: cubic-bezier(.5, 0, 0, 1);
+      --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --glass-bg: rgba(255, 255, 255, .6);
+      --glass-bg-strong: rgba(255, 255, 255, .72);
+      --glass-border: rgba(255, 255, 255, .5);
+      --glass-shadow: 0 10px 34px rgba(0, 0, 0, .10), inset 0 1px 0 rgba(255, 255, 255, .6);
+    }
 
-        .bg-soft-gradient {
-            background: linear-gradient(135deg, #cdf3ff 0%, #ffffff 100%);
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .btn-primary {
-            background-color: #02a6db;
-            color: #ffffff;
-            border-radius: 0.5rem;
-            /* ROUND_EIGHT */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .btn-primary:hover {
-            background-color: #028db9;
-            transform: translateY(-1px);
-        }
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: #f0eefc;
+      overflow-x: hidden;
+    }
 
-        .btn-secondary {
-            background-color: #f0f3ff;
-            color: #006687;
-            border-radius: 0.5rem;
-            /* ROUND_EIGHT */
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    .globe-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      background: #f0eefc;
+      perspective: 1200px;
+    }
 
-        .btn-secondary:hover {
-            background-color: #e2e8ff;
-            transform: translateY(-1px);
-        }
+    .globe-scene {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1px;
+      height: 1px;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px 0 rgba(0, 102, 135, 0.05);
-        }
+    .globe-node {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      filter: blur(34px);
+      transform: translate3d(var(--x), var(--y), var(--z)) translate(-50%, -50%);
+    }
 
-        .glass-card-hover:hover {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 12px 40px 0 rgba(0, 102, 135, 0.1);
-        }
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-        .nav-glass {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-    </style>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    .wrap-wide {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ---------- Nav ---------- */
+    #nav {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      z-index: 100;
+      transform: translateX(-50%);
+      width: min(920px, calc(100% - 32px));
+      height: 54px;
+      border-radius: 980px;
+      background: var(--glass-bg);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      transition: background .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease), color .4s var(--ease);
+    }
+
+    #nav.scrolled {
+      background: var(--glass-bg-strong);
+    }
+
+    #nav.on-dark {
+      color: var(--white);
+      background: rgba(30, 30, 32, .45);
+      border-color: rgba(255, 255, 255, .14);
+      box-shadow: 0 10px 34px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .08);
+    }
+
+    #nav .inner {
+      height: 100%;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      font-family: var(--font-secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      opacity: .85;
+      transition: opacity .2s;
+      font-family: var(--font-secondary);
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 22px;
+      height: 16px;
+      position: relative;
+    }
+
+    .nav-toggle span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: currentColor;
+      transition: transform .3s var(--ease), opacity .3s;
+    }
+
+    .nav-toggle span:nth-child(1) {
+      top: 0;
+    }
+
+    .nav-toggle span:nth-child(2) {
+      top: 7px;
+    }
+
+    .nav-toggle span:nth-child(3) {
+      top: 14px;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @media (max-width:760px) {
+      .nav-links {
+        position: fixed;
+        top: 76px;
+        left: 16px;
+        right: 16px;
+        flex-direction: column;
+        gap: 0;
+        background: var(--glass-bg-strong);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 22px;
+        box-shadow: var(--glass-shadow);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .35s var(--ease);
+        color: var(--ink);
+      }
+
+      .nav-links.open {
+        max-height: 280px;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 16px 22px;
+        border-bottom: 1px solid rgba(0, 0, 0, .06);
+        opacity: 1;
+        font-size: 15px;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+
+      .nav-toggle {
+        display: block;
+        margin-right: 10px;
+      }
+    }
+
+    /* ---------- Hero ---------- */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .32) 0%, rgba(255, 255, 255, .55) 100%);
+      overflow: hidden;
+    }
+
+    #hero .eyebrow {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray);
+      letter-spacing: 0;
+      margin-bottom: 14px;
+      font-family: var(--font-secondary);
+      opacity: 0;
+      transform: translateY(10px);
+      animation: rise .8s var(--ease) .15s forwards;
+    }
+
+    #hero h1 {
+      font-size: clamp(38px, 7vw, 86px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.04;
+      max-width: 920px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise .9s var(--ease) .3s forwards;
+    }
+
+    #hero p.sub {
+      margin-top: 22px;
+      font-size: clamp(16px, 2vw, 22px);
+      color: var(--gray);
+      max-width: 600px;
+      font-weight: 400;
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise .9s var(--ease) .5s forwards;
+    }
+
+    #hero .cta-row {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise .9s var(--ease) .7s forwards;
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 22px;
+      border-radius: 980px;
+      font-size: 15px;
+      font-weight: 400;
+      font-family: var(--font-secondary);
+      transition: transform .25s var(--ease), background .25s, color .25s, box-shadow .25s;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dim);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      color: var(--blue);
+    }
+
+    .btn-ghost:hover {
+      color: var(--blue-dim);
+    }
+
+    .btn-ghost:after {
+      content: "›";
+      font-size: 17px;
+      margin-left: 2px;
+      transition: transform .25s var(--ease);
+    }
+
+    .btn-ghost:hover:after {
+      transform: translateX(2px);
+    }
+
+    #hero .scrollcue {
+      position: absolute;
+      bottom: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 34px;
+      background: var(--line);
+      opacity: 0;
+      animation: fadein 1s ease .3s forwards;
+    }
+
+    #hero .scrollcue:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -3px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gray);
+      animation: cue 1.8s ease-in-out infinite;
+    }
+
+    @keyframes cue {
+      0% {
+        top: 0;
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 0;
+      }
+
+      100% {
+        top: 26px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadein {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ---------- Generic section rhythm ---------- */
+    .section {
+      padding: 140px 0;
+      position: relative;
+      background: rgba(255, 255, 255, .28);
+      backdrop-filter: saturate(160%) blur(50px);
+      -webkit-backdrop-filter: saturate(160%) blur(50px);
+      scroll-margin-top: 90px;
+    }
+
+    .section.tight {
+      padding: 110px 0;
+    }
+
+    .section-dark {
+      background: rgba(6, 8, 10, .82);
+      color: #f5f5f7;
+    }
+
+    .section-paper {
+      background: rgba(255, 255, 255, .4);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(.94);
+      transition: opacity 1s var(--ease), transform 1s var(--ease);
+    }
+
+    .reveal-scale.in {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .stagger .reveal:nth-child(1) {
+      transition-delay: 0s;
+    }
+
+    .stagger .reveal:nth-child(2) {
+      transition-delay: .08s;
+    }
+
+    .stagger .reveal:nth-child(3) {
+      transition-delay: .16s;
+    }
+
+    .stagger .reveal:nth-child(4) {
+      transition-delay: .24s;
+    }
+
+    .stagger .reveal:nth-child(5) {
+      transition-delay: .32s;
+    }
+
+    .stagger .reveal:nth-child(6) {
+      transition-delay: .4s;
+    }
+
+    .kicker {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--blue);
+      margin-bottom: 12px;
+      font-family: var(--font-secondary);
+    }
+
+    .section-dark .kicker {
+      color: #2997ff;
+    }
+
+    h2.headline {
+      font-size: clamp(30px, 4.5vw, 56px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.06;
+      max-width: 760px;
+    }
+
+    p.lede {
+      font-size: clamp(17px, 1.6vw, 21px);
+      color: var(--gray);
+      font-weight: 400;
+      line-height: 1.5;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    .section-dark p.lede {
+      color: #a1a1a6;
+    }
+
+    /* ---------- Intro / stat ---------- */
+    #intro .grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 64px;
+      align-items: end;
+      margin-top: 64px;
+    }
+
+    #intro .stat {
+      font-size: clamp(64px, 9vw, 120px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    #intro .stat span {
+      font-size: .32em;
+      font-weight: 500;
+      color: var(--gray);
+      display: block;
+      margin-top: 8px;
+      letter-spacing: 0;
+    }
+
+    @media (max-width:760px) {
+      #intro .grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    /* ---------- Experience ---------- */
+    .timeline {
+      margin-top: 60px;
+      border-top: 1px solid #2c2c2e;
+    }
+
+    .tl-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      padding: 38px 0;
+      border-bottom: 1px solid #2c2c2e;
+    }
+
+    .tl-row .period {
+      color: #8e8e93;
+      font-size: 15px;
+      font-family: var(--font-secondary);
+    }
+
+    .tl-row h3 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .tl-row .org {
+      color: #98989d;
+      font-size: 15px;
+      margin-bottom: 14px;
+      font-family: var(--font-secondary);
+    }
+
+    .tl-row p {
+      color: #c7c7cc;
+      line-height: 1.6;
+      font-size: 16px;
+      max-width: 560px;
+    }
+
+    @media (max-width:700px) {
+      .tl-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    /* ---------- Skills ---------- */
+    .skill-grid {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-cell {
+      background: var(--glass-bg);
+      padding: 34px 28px;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      transition: transform .4s var(--ease), background .3s, box-shadow .4s var(--ease);
+    }
+
+    .skill-cell:hover {
+      background: var(--glass-bg-strong);
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .14), inset 0 1px 0 rgba(255, 255, 255, .6);
+    }
+
+    .skill-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      padding: 13px;
+      background: rgba(255, 255, 255, .55);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .08), inset 0 1px 0 rgba(255, 255, 255, .7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .skill-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .skill-cell .name {
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .skill-cell .tag {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: auto;
+      font-family: var(--font-secondary);
+    }
+
+    @media (max-width:760px) {
+      .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width:480px) {
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- Work rail ---------- */
+    #projects .rail-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .rail {
+      margin-top: 52px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 6px 22px 26px;
+    }
+
+    @media (max-width:900px) {
+      .rail {
+        display: flex;
+        gap: 22px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .rail .card {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+        width: min(78vw, 420px);
+      }
+    }
+
+    .rail::-webkit-scrollbar {
+      display: none;
+    }
+
+    #projects {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #projects .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #projects .blob-1 {
+      width: 420px;
+      height: 420px;
+      top: -120px;
+      left: -100px;
+      background: radial-gradient(circle, #a8c9ff 0%, rgba(168, 201, 255, 0) 70%);
+    }
+
+    #projects .blob-2 {
+      width: 480px;
+      height: 480px;
+      bottom: -160px;
+      right: -120px;
+      background: radial-gradient(circle, #ffc9e3 0%, rgba(255, 201, 227, 0) 70%);
+    }
+
+    #projects .blob-3 {
+      width: 340px;
+      height: 340px;
+      top: 30%;
+      left: 45%;
+      background: radial-gradient(circle, #c9f7d8 0%, rgba(201, 247, 216, 0) 70%);
+    }
+
+    #projects .wrap-wide,
+    #projects .rail {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--glass-bg);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .14), inset 0 1px 0 rgba(255, 255, 255, .6);
+    }
+
+    .card .thumb {
+      height: 260px;
+      overflow: hidden;
+      background: #e5e5ea;
+      margin: 10px 10px 0;
+      border-radius: 16px;
+    }
+
+    .card .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s var(--ease);
+    }
+
+    .card:hover .thumb img {
+      transform: scale(1.05);
+    }
+
+    .card .body {
+      padding: 22px 22px 26px;
+      background: transparent;
+    }
+
+    .card .cat {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 8px;
+      font-family: var(--font-secondary);
+    }
+
+    .card h3 {
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .card a.go {
+      font-size: 15px;
+      color: var(--blue);
+      font-weight: 400;
+      font-family: var(--font-secondary);
+    }
+
+    .card a.go:after {
+      content: "›";
+      margin-left: 4px;
+    }
+
+    /* ---------- Certification ---------- */
+    .cert {
+      margin-top: 56px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      background: rgba(255, 255, 255, .5);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--glass-shadow);
+    }
+
+    .cert img {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      object-fit: cover;
+      flex: 0 0 auto;
+    }
+
+    .cert h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .cert p {
+      color: var(--gray);
+      line-height: 1.55;
+      max-width: 560px;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width:640px) {
+      .cert {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    /* ---------- Contact ---------- */
+    #contact {
+      background: rgba(6, 8, 10, .85);
+      backdrop-filter: saturate(160%) blur(50px);
+      color: #fff;
+      text-align: center;
+    }
+
+    #contact h2.headline {
+      margin: 0 auto;
+    }
+
+    #contact p.lede {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-form {
+      max-width: 520px;
+      margin: 52px auto 0;
+      text-align: left;
+    }
+
+    .field {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #424245;
+      color: #fff;
+      font-size: 17px;
+      font-family: inherit;
+      padding: 12px 2px;
+      outline: none;
+      transition: border-color .3s;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: #2997ff;
+    }
+
+    .field label {
+      position: absolute;
+      left: 2px;
+      top: 12px;
+      color: #86868b;
+      font-size: 17px;
+      pointer-events: none;
+      font-family: var(--font-secondary);
+      transition: transform .2s var(--ease), font-size .2s var(--ease), color .2s;
+      transform-origin: left top;
+    }
+
+    .field input:focus~label,
+    .field input:not(:placeholder-shown)~label,
+    .field textarea:focus~label,
+    .field textarea:not(:placeholder-shown)~label {
+      transform: translateY(-20px);
+      font-size: 12px;
+      color: #2997ff;
+    }
+
+    .contact-meta {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      color: #98989d;
+      font-size: 15px;
+      font-family: var(--font-secondary);
+    }
+
+    .contact-meta a {
+      color: #fff;
+    }
+
+    .contact-meta a:hover {
+      color: #2997ff;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--black);
+      color: #6e6e73;
+      padding: 26px 0 40px;
+      font-size: 12px;
+      font-family: var(--font-secondary);
+    }
+
+    footer .wrap-wide {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-top: 1px solid #333336;
+      padding-top: 20px;
+    }
+
+    footer .flinks {
+      display: flex;
+      gap: 20px;
+    }
+
+    footer a:hover {
+      color: #f5f5f7;
+    }
+  </style>
 </head>
 
-<body class="bg-soft-gradient font-body text-on-surface min-h-screen">
+<body>
 
-    <!-- TopAppBar -->
-    <header
-        class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-6xl z-50 nav-glass shadow-floating-nav rounded-2xl transition-all duration-500 hover:shadow-ultra-elevated hover:bg-white/60">
-        <nav class="flex justify-between items-center py-4 mx-auto px-8">
-            <div class="text-2xl font-bold tracking-tighter text-sky-900"><a href="#">Abdul Malik</a></div>
-            <div class="hidden md:flex gap-8 items-center">
-                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
-                    href="#work">Work</a>
-                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
-                    href="#skills">Skills</a>
-                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
-                    href="#projects">Projects</a>
-                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
-                    href="#certifications">Certifications</a>
-                <a class="text-slate-600 hover:text-sky-500 font-manrope font-light tracking-tight transition-colors"
-                    href="#contact">Contact</a>
-            </div>
-            <button class="md:hidden text-on-surface">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-        </nav>
-    </header>
-    <main class="pt-32">
+  <div class="globe-wrap">
+    <div class="globe-scene" id="globeScene"></div>
+  </div>
 
-        <!-- Hero Section -->
-        <section class="relative min-h-[85vh] flex items-center px-8 max-w-7xl mx-auto overflow-hidden">
-            <div class="z-10 w-full md:w-2/3">
-                <h1
-                    class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter text-on-surface mb-6 leading-none">
-                    M.N. Abdul Malik.
-                </h1>
-                <p class="font-headline text-2xl md:text-3xl font-light text-slate-500 mb-10 max-w-xl">
-                    Translating complex data into <span class="text-primary font-medium italic">functional
-                        narratives</span> and insightful<span
-                        class="text-primary font-medium italic">visualizations</span>.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a class="btn-primary px-8 py-4 font-semibold text-lg inline-flex items-center justify-center min-w-[160px]"
-                        href="#projects">View Work</a>
-                    <a class="btn-secondary px-8 py-4 font-semibold text-lg inline-flex items-center justify-center min-w-[160px]"
-                        href="#contact">Contact Me</a>
-                </div>
-            </div>
-            <!-- Decorative Element -->
-            <div
-                class="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-brand-light/40 rounded-full blur-[120px]">
-            </div>
-            <div class="absolute right-20 top-1/3 w-64 h-64 bg-primary-container/20 rounded-full blur-[100px]"></div>
-        </section>
-        <!-- About Section -->
-        <section class="py-24 px-8 bg-white/30">
-            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-                <div class="relative group">
-                    <div class="aspect-square rounded-2xl overflow-hidden bg-surface-container-highest">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            data-alt="Professional portrait of a male data analyst"
-                            src="profile.jpg" />
-                    </div>
-                    <div
-                        class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-primary p-4 rounded-xl shadow-xl flex items-center justify-center text-white">
-                        <span class="text-center font-headline font-bold text-sm">4+ Years Experience</span>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="font-headline text-4xl font-light mb-8 text-on-surface">Precision in <span
-                            class="font-bold">Execution</span></h2>
-                    <p class="text-lg text-on-surface-variant leading-relaxed mb-10">
-                        As a Data Analyst and Developer, I specialize in bridging the gap between raw information and
-                        actionable insights. My approach combines rigorous mathematical logic with modern web
-                        technologies to build tools that are as beautiful as they are efficient.
-                    </p>
-                    <div class="flex gap-4"><a href="Resume.pdf" download target="_blank"
-                            class="btn-primary flex items-center gap-2 px-6 py-3 font-semibold">
-                            <span class="material-symbols-outlined text-xl">download</span>
-                            Download CV
-                        </a>
-                        <a href="https://linkedin.com/in/mn-abdulmalik" target="_blank"
-                            class="btn-secondary flex items-center gap-2 px-6 py-3 font-semibold">
-                            <span class="material-symbols-outlined text-xl">link</span>
-                            LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Work Experience -->
-        <section class="py-24 px-8 max-w-7xl mx-auto" id="work">
-            <h2 class="font-headline text-4xl font-bold mb-16 text-on-surface">Experience</h2>
-            <div class="space-y-12">
-                <!-- Current Role -->
-                <div class="grid md:grid-cols-12 items-start gap-8">
-                    <div class="md:col-span-4 sticky top-32">
-                        <h3 class="font-headline text-2xl font-bold text-primary">Data Analyst</h3>
-                        <p class="text-on-surface-variant font-medium">DIMO</p>
-                        <p class="text-sm font-label text-slate-400 mt-2 uppercase">Dec 2025 - Present</p>
-                    </div>
-                    <div
-                        class="md:col-span-8 p-8 bg-white/60 backdrop-blur-sm rounded-2xl border-l-4 border-brand-primary shadow-sm">
-                        <p class="text-on-surface-variant leading-relaxed">
-                            Spearheading data-driven initiatives to optimize operational efficiency. Developing custom
-                            internal dashboards and predictive models to forecast market trends and inventory
-                            requirements.
-                        </p>
-                    </div>
-                </div>
-                <!-- Role 2 -->
-                <div class="grid md:grid-cols-12 items-start gap-8">
-                    <div class="md:col-span-4 sticky top-32">
-                        <h3 class="font-headline text-2xl font-bold text-slate-800">Online Math Tutor</h3>
-                        <p class="text-on-surface-variant font-medium">Third Space Global</p>
-                        <p class="text-sm font-label text-slate-400 mt-2 uppercase">Jan 2023 - Jul 2025</p>
-                    </div>
-                    <div
-                        class="md:col-span-8 p-8 bg-white/40 backdrop-blur-sm rounded-2xl border-l-4 border-brand-light shadow-sm">
-                        <p class="text-on-surface-variant leading-relaxed">
-                            Delivered high-impact virtual mathematics instruction to international students. Simplified
-                            complex algebraic and geometric concepts through interactive digital tools and personalized
-                            learning paths.
-                        </p>
-                    </div>
-                </div>
-                <!-- Role 3 -->
-                <div class="grid md:grid-cols-12 items-start gap-8">
-                    <div class="md:col-span-4 sticky top-32">
-                        <h3 class="font-headline text-2xl font-bold text-slate-800">Physics Tutor</h3>
-                        <p class="text-on-surface-variant font-medium">Advanced Level</p>
-                        <p class="text-sm font-label text-slate-400 mt-2 uppercase">2020 - 2022</p>
-                    </div>
-                    <div
-                        class="md:col-span-8 p-8 bg-white/40 backdrop-blur-sm rounded-2xl border-l-4 border-slate-200 shadow-sm">
-                        <p class="text-on-surface-variant leading-relaxed">
-                            Guided advanced-level students through intensive physics curricula. Developed comprehensive
-                            lesson plans focusing on mechanics, electromagnetism, and thermodynamic principles.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Glassmorphism Section Container with Decorative Background -->
-        <div class="relative overflow-hidden">
-            <!-- Background Decorative Blobs -->
-            <div
-                class="absolute top-1/4 left-0 w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] -z-10">
-            </div>
-            <div
-                class="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-brand-light/30 rounded-full blur-[120px] -z-10">
-            </div>
-            <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-200/20 rounded-full blur-[150px] -z-10">
-            </div>
-            <!-- Skills Section -->
-            <section class="py-24 px-8 relative" id="skills">
-                <div class="max-w-7xl mx-auto">
-                    <h2 class="font-headline text-4xl font-bold mb-16 text-center text-on-surface">Technical Arsenal
-                    </h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        <div
-                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
-                            <span class="material-symbols-outlined text-4xl text-primary mb-4">database</span>
-                            <span
-                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">SQL</span>
-                        </div>
-                        <div
-                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
-                            <span class="material-symbols-outlined text-4xl text-primary mb-4">terminal</span>
-                            <span
-                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Python</span>
-                        </div>
-                        <div
-                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
-                            <span class="material-symbols-outlined text-4xl text-primary mb-4">bar_chart</span>
-                            <span
-                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Tableau</span>
-                        </div>
-                        <div
-                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
-                            <span class="material-symbols-outlined text-4xl text-primary mb-4">code</span>
-                            <span
-                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">React</span>
-                        </div>
-                        <div
-                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
-                            <span class="material-symbols-outlined text-4xl text-primary mb-4">monitoring</span>
-                            <span
-                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Power
-                                BI</span>
-                        </div>
-                        <div
-                            class="flex flex-col items-center justify-center p-6 glass-card glass-card-hover rounded-xl transition-all hover:-translate-y-2 group">
-                            <span class="material-symbols-outlined text-4xl text-primary mb-4">javascript</span>
-                            <span
-                                class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">Node.js</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Projects Section -->
-            <section class="py-24 px-8 max-w-7xl mx-auto relative" id="projects">
-                <h2 class="font-headline text-4xl font-bold mb-16 text-on-surface">Curated Work</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project Card 1 -->
-                    <div
-                        class="group glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 flex flex-col">
-                        <div class="h-48 overflow-hidden relative">
-                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                data-alt="E-commerce webstore dashboard interface"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSq1juVb3KeETWS0_2W4rqxRPY53y1HaMmM_Wp1wMJygA4MxUt3wQ7NN-0XtusMw7evDs23sviMloikb7ycm9mxHZ9Z86IXe9FhSsIX0ZA5TYys58rUA6Mkjg1zJ8k6WmALs_NQvd9I1BqqHqAqN3oQ4-aPFQj-sW1x4aIlUIQwuZtoHbmepoAF7ZrFqD80Xm4J54mzdZDhA4awJ7ascFhWwZb-qzqnUEXbYnE8-LGVz68BZpG2_MPcUg3i8pmkMijZW-xycBDSEI" />
-                            <div
-                                class="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity">
-                            </div>
-                        </div>
-                        <div class="p-8 flex-grow flex flex-col">
-                            <div class="flex gap-2 mb-4">
-                                <span
-                                    class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Web
-                                    Dev</span>
-                                <span
-                                    class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Full-Stack</span>
-                            </div>
-                            <h3 class="font-headline text-xl font-bold mb-3 text-on-surface">E-commerce Webstore</h3>
-                            <p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
-                                A robust digital storefront featuring dynamic cart management, secure checkout, and a
-                                real-time inventory tracking system.
-                            </p>
-                            <div class="mt-auto pt-4 flex justify-between items-center border-t border-white/20">
-                                <a class="text-primary font-bold text-sm flex items-center gap-1 group/link" href="#">
-                                    View Case Study
-                                    <span
-                                        class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Card 2 -->
-                    <div
-                        class="group glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 flex flex-col">
-                        <div class="h-48 overflow-hidden relative">
-                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                data-alt="Data visualization graphs showing market analysis"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc9Ko_JMO8oqWYlvJewEE6GkSkPzdprjXvlWCUeElv0vhsFivDwGGTg6Qn2IfDSWbZl9EPu7n3sfaj7etsobHwQen9-F8FnTyCozUCWpAm3AHfbfXC99JszjnjMT9HmDyY0AZ-GhNUjgNqIluQgkXLQBy2-7OOsi8hx_ieUdMnaIOGZf-AM7juYxuHq0W11jEwlFmBlwU7hk0WrIzLgYs6VyCpqx2eqF3IrZJGzgU8aQQ1aHNcC839av3JWSJgTCPmSPE1JyOW-vk" />
-                            <div
-                                class="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity">
-                            </div>
-                        </div>
-                        <div class="p-8 flex-grow flex flex-col">
-                            <div class="flex gap-2 mb-4">
-                                <span
-                                    class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Data
-                                    Analysis</span>
-                            </div>
-                            <h3 class="font-headline text-xl font-bold mb-3 text-on-surface">Acne Impact Research</h3>
-                            <p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
-                                Statistical analysis of dermatological data to identify correlations between lifestyle
-                                factors and skincare treatment outcomes.
-                            </p>
-                            <div class="mt-auto pt-4 flex justify-between items-center border-t border-white/20">
-                                <a class="text-primary font-bold text-sm flex items-center gap-1 group/link"
-                                    href="https://drive.google.com/file/d/1O5ZztVx7D2sPI7wANyg83wfGIl2P8gHA/view"
-                                    target="_blank">
-                                    View Analysis
-                                    <span
-                                        class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Card 3 -->
-                    <div
-                        class="group glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 flex flex-col">
-                        <div class="h-48 overflow-hidden relative">
-                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                data-alt="Stock market auction digital platform"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaNA7SyHsPbFivAAKo9-0pM-ggQi9sjymeOjy2heLD2SDRFNRAy8BlpAQzIy__5FWgn5TX4V-WG5wOhabcxS5yZuJoFjHoXU39UbOCF7RtVlz6q_tI-uUgagPeEySjsuUO_pIfrWiSLt7h01AIKz3raGUdweP6-hyTiZcUGtrbrR1L_XyCNja-zRpYW4UFpTrkRkPiKtxnZY6N7mQvo5arNwUz7GnkYoXOWhYWdI-0pxYBMpvqyL-EbMN9yV6kYfAsET-khflYoUo" />
-                            <div
-                                class="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity">
-                            </div>
-                        </div>
-                        <div class="p-8 flex-grow flex flex-col">
-                            <div class="flex gap-2 mb-4">
-                                <span
-                                    class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Data
-                                    Analysis</span>
-                            </div>
-                            <h3 class="font-headline text-xl font-bold mb-3 text-on-surface">Online Auction System</h3>
-                            <p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
-                                A low-latency bidding engine utilizing WebSocket for real-time updates and an automated
-                                high-bidder resolution logic.
-                            </p>
-                            <div class="mt-auto pt-4 flex justify-between items-center border-t border-white/20">
-                                <a class="text-primary font-bold text-sm flex items-center gap-1 group/link" href="#">
-                                    View Repository
-                                    <span
-                                        class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Certifications Section -->
-            <section class="py-24 px-8 relative" id="certifications">
-                <div class="max-w-7xl mx-auto">
-                    <h2 class="font-headline text-4xl font-bold mb-16 text-on-surface">Certifications</h2>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Certificate Card -->
-                        <div
-                            class="group glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 flex flex-col">
-                            <div class="h-48 bg-white/30 flex items-center justify-center p-8 relative overflow-hidden">
-                                <span
-                                    class="material-symbols-outlined text-8xl text-brand-primary/10 absolute -right-4 -bottom-4">verified_user</span>
-                                <div class="z-10 text-center">
-                                    <img class="w-20 h-20 mx-auto rounded-lg mb-4 shadow-sm bg-white p-2"
-                                        data-alt="Google certification badge icon"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwUgF9XS_vvOF7PKLduFXfH5Vuv-tsEkoD77gGoYq4szg4qB0H0b24zxUOY9SwIvY0qhJqSjyIo2uilBbv-ccVgp7fIIvJ1EjS96WHDzFSjU_qFqWlSLqjEIUWMWUqa2hVaBtNzBLlOYNQagt_ULtc32kSFowReCbdiOBiK4QYRcrotvc8SLCKiYhVCIWEZi2c6CCZa1Sf5tRGNApLqpQor3163HClJJ_mowy4TPcXYBbVEG44t2CXaAmhxuGAg5_pu5_pXx5iZQk" />
-                                </div>
-                            </div>
-                            <div class="p-8 flex-grow flex flex-col">
-                                <div class="flex gap-2 mb-4">
-                                    <span
-                                        class="px-2 py-1 bg-brand-primary text-[10px] font-bold rounded uppercase tracking-wider text-white">Google
-                                        Certified</span>
-                                </div>
-                                <h3 class="font-headline text-xl font-bold mb-3 text-on-surface">Data Analytics
-                                    Certificate</h3>
-                                <p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
-                                    Verified professional expertise in data cleaning, visualization, R programming, and
-                                    decision-making processes by Google.
-                                </p><a
-                                    href="https://drive.google.com/file/d/1Ya53Ce9U4To6-VXgtVlaDQzs8Fl0BLfH/view?usp=drive_link"
-                                    target="_blank">
-                                    <div class="mt-auto pt-4 border-t border-white/20">
+  <nav id="nav">
+    <div class="inner">
+      <a class="brand" href="#top">Abdul Malik.</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-                                        <button class="w-full py-3 btn-secondary font-bold text-sm">Verify
-                                            Credentials</button>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <header id="hero">
+    <div class="eyebrow">Data Analyst &amp; Developer</div>
+    <h1>Turning raw data<br>into clear decisions.</h1>
+    <p class="sub">M.N. Abdul Malik — building dashboards, models, and tools that make information easier to act on.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projects">View Work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+    <div class="scrollcue"></div>
+  </header>
+
+  <section class="section" id="intro">
+    <div class="wrap">
+      <div class="kicker">Approach</div>
+      <h2 class="headline reveal">Precision in execution.</h2>
+      <p class="lede reveal">I bridge raw information and actionable insight — combining rigorous mathematical logic
+        with modern web technology to build tools that are as functional as they are considered.</p>
+      <div class="grid">
+        <div class="stat reveal-scale">4+<span>Years of experience across data analysis and technical instruction</span>
         </div>
-        </section>
+        <div class="reveal">
+          <p class="lede" style="margin-top:0;">Currently a Data Analyst at DIMO, previously a mathematics and physics
+            tutor working with students across the globe. Based in Kurunegala, Sri Lanka.</p>
+          <div style="margin-top:26px; display:flex; gap:14px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="https://abdulmalik28.github.io/Portfolio/Resume.pdf">Download CV</a>
+            <a class="btn btn-ghost" href="https://linkedin.com/in/mn-abdulmalik">LinkedIn</a>
+          </div>
         </div>
-        <!-- Contact Section -->
-        <section class="py-32 px-8" id="contact">
-            <div class="max-w-7xl mx-auto">
-                <div
-                    class="rounded-[2.5rem] p-8 md:p-16 flex flex-col md:flex-row gap-16 shadow-ultra-elevated scale-[1.02] transition-all duration-500 backdrop-blur-2xl glass-card">
-                    <div class="md:w-1/2">
-                        <h2
-                            class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter mb-6 text-on-surface">
-                            Let's build something <span class="text-brand-primary">precise.</span></h2>
-                        <p class="text-lg text-on-surface-variant mb-12 max-w-md">
-                            Open to opportunities in data analysis, including data-driven projects, business
-                            intelligence, and analytical consulting, with a focus on transforming data into actionable
-                            insights.
-                        </p>
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center text-brand-primary shadow-md">
-                                    <span class="material-symbols-outlined">mail</span>
-                                </div>
-                                <span class="font-semibold text-on-surface">mn.abdulmalik28@gmail.com</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-12 h-12 bg-white/80 rounded-full flex items-center justify-center text-brand-primary shadow-md">
-                                    <span class="material-symbols-outlined">location_on</span>
-                                </div>
-                                <span class="font-semibold text-on-surface">Kurunegala, Sri Lanka</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 glass-card p-8 rounded-2xl shadow-lg">
-                        <form action="https://formspree.io/f/meorpbep" method="POST" class="max-w-xl mx-auto space-y-6">
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
+      </div>
+    </div>
+  </section>
 
-                                    <label class="text-xs font-bold font-label uppercase text-slate-400">Name</label>
-                                    <input type="text"
-                                        class="w-full bg-white/50 border-none rounded-xl focus:ring-2 focus:ring-brand-primary py-3 px-4"
-                                        placeholder="First Last" />
-                                </div>
-                                <div class="space-y-2">
-                                    <label class="text-xs font-bold font-label uppercase text-slate-400">Email</label>
-                                    <input type="email"
-                                        class="w-full bg-white/50 border-none rounded-xl focus:ring-2 focus:ring-brand-primary py-3 px-4"
-                                        placeholder="example@gmail.com" />
-                                </div>
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-xs font-bold font-label uppercase text-slate-400">Message</label>
-                                <textarea name="message" rows="4"
-                                    class="w-full bg-white/50 border-none rounded-xl focus:ring-2 focus:ring-brand-primary py-3 px-4"
-                                    placeholder="Tell me about ..."></textarea>
-                            </div>
-                            <button type="submit"
-                                class="w-full py-4 btn-primary font-bold text-lg shadow-lg hover:shadow-xl">Send
-                                Message</button>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- Footer -->
-    <footer class="w-full border-t border-brand-light/30 bg-white/40 backdrop-blur-sm">
-        <div class="flex flex-col md:flex-row justify-between items-center py-12 px-8 max-w-7xl mx-auto">
-            <div class="mb-8 md:mb-0">
-                <div class="text-lg font-black text-sky-900 mb-2">Portfolio</div>
-                <p class="font-inter text-sm tracking-wide text-slate-500">© Abdul Malik</p>
-            </div>
-            <div class="flex gap-8">
-                <a class="text-slate-500 hover:text-sky-500 underline-offset-4 hover:underline transition-opacity"
-                    href="https://linkedin.com/in/mn-abdulmalik">LinkedIn</a>
-                <a class="text-slate-500 hover:text-sky-500 underline-offset-4 hover:underline transition-opacity"
-                    href="https://x.com/xnavailabl3">Twitter</a>
-            </div>
+  <section class="section section-dark" id="work">
+    <div class="wrap">
+      <div class="kicker">Experience</div>
+      <h2 class="headline reveal">Where the work happened.</h2>
+      <div class="timeline">
+        <div class="tl-row reveal">
+          <div class="period">Dec 2025 — Present</div>
+          <div>
+            <h3>Data Analyst</h3>
+            <div class="org">DIMO</div>
+            <p>Spearheading data-driven initiatives to optimize operational efficiency — developing internal dashboards
+              and predictive models to forecast market trends and inventory requirements.</p>
+          </div>
         </div>
-    </footer>
+        <div class="tl-row reveal">
+          <div class="period">Jan 2023 — Jul 2025</div>
+          <div>
+            <h3>Online Math Tutor</h3>
+            <div class="org">Third Space Global</div>
+            <p>Delivered high-impact virtual mathematics instruction to international students, simplifying complex
+              algebraic and geometric concepts through interactive digital tools and personalised learning paths.</p>
+          </div>
+        </div>
+        <div class="tl-row reveal">
+          <div class="period">2020 — 2022</div>
+          <div>
+            <h3>Physics Tutor</h3>
+            <div class="org">Advanced Level</div>
+            <p>Guided advanced-level students through intensive physics curricula, developing lesson plans focused on
+              mechanics, electromagnetism, and thermodynamic principles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-paper" id="skills">
+    <div class="wrap">
+      <div class="kicker">Technical Arsenal</div>
+      <h2 class="headline reveal">Tools I reach for.</h2>
+      <div class="skill-grid stagger">
+        <div class="skill-cell reveal">
+          <div class="skill-icon"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL"></div>
+          <div class="name">SQL</div>
+          <div class="tag">Querying &amp; data modelling</div>
+        </div>
+        <div class="skill-cell reveal">
+          <div class="skill-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python"></div>
+          <div class="name">Python</div>
+          <div class="tag">Analysis &amp; automation</div>
+        </div>
+        <div class="skill-cell reveal">
+          <div class="skill-icon"><img src="https://img.icons8.com/?size=100&id=9Kvi1p1F0tUo&format=png&color=000000"
+              alt="Tableau"></div>
+          <div class="name">Tableau</div>
+          <div class="tag">Data visualisation</div>
+        </div>
+        <div class="skill-cell reveal">
+          <div class="skill-icon"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React"></div>
+          <div class="name">React</div>
+          <div class="tag">Interface development</div>
+        </div>
+        <div class="skill-cell reveal">
+          <div class="skill-icon"><img src="https://img.icons8.com/?size=100&id=qYfwpsRXEcpc&format=png&color=000000"
+              alt="Power BI"></div>
+          <div class="name">Power BI</div>
+          <div class="tag">Data Cleaning & Visualization</div>
+        </div>
+        <div class="skill-cell reveal">
+          <div class="skill-icon"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="Node.js"></div>
+          <div class="name">Node.js</div>
+          <div class="tag">Backend &amp; APIs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="wrap-wide">
+      <div class="rail-head">
+        <div>
+          <div class="kicker">Curated Work</div>
+          <h2 class="headline reveal">A few things I've built.</h2>
+        </div>
+      </div>
+    </div>
+    <div class="rail">
+      <div class="card reveal">
+        <div class="thumb"><img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSq1juVb3KeETWS0_2W4rqxRPY53y1HaMmM_Wp1wMJygA4MxUt3wQ7NN-0XtusMw7evDs23sviMloikb7ycm9mxHZ9Z86IXe9FhSsIX0ZA5TYys58rUA6Mkjg1zJ8k6WmALs_NQvd9I1BqqHqAqN3oQ4-aPFQj-sW1x4aIlUIQwuZtoHbmepoAF7ZrFqD80Xm4J54mzdZDhA4awJ7ascFhWwZb-qzqnUEXbYnE8-LGVz68BZpG2_MPcUg3i8pmkMijZW-xycBDSEI"
+            alt="E-commerce webstore project"></div>
+        <div class="body">
+          <div class="cat">Web Development · Full-Stack</div>
+          <h3>E-commerce Webstore</h3>
+          <p>A robust digital storefront featuring dynamic cart management, secure checkout, and real-time inventory
+            tracking.</p>
+          <a class="go" href="#">View Case Study</a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="thumb"><img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc9Ko_JMO8oqWYlvJewEE6GkSkPzdprjXvlWCUeElv0vhsFivDwGGTg6Qn2IfDSWbZl9EPu7n3sfaj7etsobHwQen9-F8FnTyCozUCWpAm3AHfbfXC99JszjnjMT9HmDyY0AZ-GhNUjgNqIluQgkXLQBy2-7OOsi8hx_ieUdMnaIOGZf-AM7juYxuHq0W11jEwlFmBlwU7hk0WrIzLgYs6VyCpqx2eqF3IrZJGzgU8aQQ1aHNcC839av3JWSJgTCPmSPE1JyOW-vk"
+            alt="Acne impact research project"></div>
+        <div class="body">
+          <div class="cat">Data Analysis</div>
+          <h3>Acne Impact Research</h3>
+          <p>Statistical analysis of dermatological data identifying correlations between lifestyle factors and skincare
+            treatment outcomes.</p>
+          <a class="go" href="https://drive.google.com/file/d/1O5ZztVx7D2sPI7wANyg83wfGIl2P8gHA/view">View Analysis</a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="thumb"><img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaNA7SyHsPbFivAAKo9-0pM-ggQi9sjymeOjy2heLD2SDRFNRAy8BlpAQzIy__5FWgn5TX4V-WG5wOhabcxS5yZuJoFjHoXU39UbOCF7RtVlz6q_tI-uUgagPeEySjsuUO_pIfrWiSLt7h01AIKz3raGUdweP6-hyTiZcUGtrbrR1L_XyCNja-zRpYW4UFpTrkRkPiKtxnZY6N7mQvo5arNwUz7GnkYoXOWhYWdI-0pxYBMpvqyL-EbMN9yV6kYfAsET-khflYoUo"
+            alt="Online auction system project"></div>
+        <div class="body">
+          <div class="cat">Data Analysis</div>
+          <h3>Online Auction System</h3>
+          <p>A low-latency bidding engine using WebSocket for real-time updates and automated high-bidder resolution
+            logic.</p>
+          <a class="go" href="#">View Repository</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-paper" id="certifications">
+    <div class="wrap">
+      <div class="kicker">Certifications</div>
+      <h2 class="headline reveal">Verified expertise.</h2>
+      <div class="cert reveal">
+        <img src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"
+          alt="Google Data Analytics certificate">
+        <div>
+          <h3>Google Data Analytics Certificate</h3>
+          <p>Verified professional expertise in data cleaning, visualisation, R programming, and decision-making
+            processes.</p>
+          <a class="btn btn-ghost" style="padding-left:0;"
+            href="https://drive.google.com/file/d/1Ya53Ce9U4To6-VXgtVlaDQzs8Fl0BLfH/view?usp=drive_link">Verify
+            Credentials</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="kicker">Get in touch</div>
+      <h2 class="headline reveal">Let's build something precise.</h2>
+      <p class="lede reveal">Open to opportunities in data analysis — data-driven projects, business intelligence, and
+        analytical consulting focused on turning data into action.</p>
+      <form class="contact-form reveal" onsubmit="return false;">
+        <div class="field"><input type="text" placeholder=" " required><label>Name</label></div>
+        <div class="field"><input type="email" placeholder=" " required><label>Email</label></div>
+        <div class="field"><textarea rows="4" placeholder=" " required></textarea><label>Message</label></div>
+        <button class="btn btn-primary" type="submit" style="width:100%; justify-content:center;">Send Message</button>
+      </form>
+      <div class="contact-meta">
+        <a href="mailto:mn.abdulmalik28@gmail.com">mn.abdulmalik28@gmail.com</a>
+        <span>Kurunegala, Sri Lanka</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap-wide">
+      <div>© Abdul Malik</div>
+      <div class="flinks">
+        <a href="https://linkedin.com/in/mn-abdulmalik">LinkedIn</a>
+        <a href="https://x.com/xnavailabl3">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Build a soft, blurry 3D "world" out of glowing nodes arranged on a sphere,
+    // then rotate the whole sphere in response to scrolling.
+    (function () {
+      const scene = document.getElementById('globeScene');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const palette = ['#4f7cfe', '#a855f7', '#7c3aed', '#3b6fef', '#8b5cf6', '#6d8dfd'];
+      const COUNT = 16;
+      const RADIUS = 460;
+
+      // Fibonacci sphere distribution — spreads nodes evenly around the globe
+      for (let i = 0; i < COUNT; i++) {
+        const t = i / (COUNT - 1);
+        const phi = Math.acos(1 - 2 * t);
+        const theta = Math.PI * (1 + Math.sqrt(5)) * i;
+        const x = RADIUS * Math.sin(phi) * Math.cos(theta);
+        const y = RADIUS * Math.sin(phi) * Math.sin(theta);
+        const z = RADIUS * Math.cos(phi);
+        const size = 150 + Math.random() * 170;
+        const color = palette[i % palette.length];
+
+        const node = document.createElement('span');
+        node.className = 'globe-node';
+        node.style.setProperty('--x', x.toFixed(1) + 'px');
+        node.style.setProperty('--y', y.toFixed(1) + 'px');
+        node.style.setProperty('--z', z.toFixed(1) + 'px');
+        node.style.width = size + 'px';
+        node.style.height = size + 'px';
+        node.style.background = `radial-gradient(circle, ${color} 0%, ${color}00 68%)`;
+        node.style.opacity = 0.7;
+        scene.appendChild(node);
+      }
+
+      let targetY = 0, targetX = 0, curY = 0, curX = 0, ticking = false;
+
+      function applyScroll() {
+        const y = window.scrollY;
+        targetY = y * 0.05;    // spin around the vertical axis as you scroll
+        targetX = 8 + y * 0.01; // gentle tilt drift
+        if (!ticking) { requestAnimationFrame(render); ticking = true; }
+      }
+
+      function render() {
+        // ease toward the target angles for a smooth, weighty rotation
+        curY += (targetY - curY) * 0.08;
+        curX += (targetX - curX) * 0.08;
+        scene.style.transform = `rotateX(${curX}deg) rotateY(${curY}deg)`;
+        if (Math.abs(targetY - curY) > 0.05 || Math.abs(targetX - curX) > 0.05) {
+          requestAnimationFrame(render);
+        } else {
+          ticking = false;
+        }
+      }
+
+      if (!reduceMotion) {
+        window.addEventListener('scroll', applyScroll, { passive: true });
+        applyScroll();
+      }
+    })();
+  </script>
+  <script>
+    // Nav: solidify on scroll, and switch text color when over the dark section
+    const nav = document.getElementById('nav');
+    const darkSection = document.getElementById('work');
+    function onScroll() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+      const r = darkSection.getBoundingClientRect();
+      const overDark = r.top < 70 && r.bottom > 70;
+      nav.classList.toggle('on-dark', overDark);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navToggle.classList.remove('open'); navLinks.classList.remove('open');
+    }));
+
+    // Scroll reveal — replays every time an element crosses into or out of view
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        e.target.classList.toggle('in', e.isIntersecting);
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal, .reveal-scale').forEach(el => io.observe(el));
+
+    // Hero parallax fade on scroll
+    const hero = document.getElementById('hero');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      const vh = window.innerHeight;
+      const p = Math.min(y / (vh * 0.9), 1);
+      hero.style.opacity = 1 - p * 0.9;
+      hero.style.transform = `translateY(${p * 40}px)`;
+    }, { passive: true });
+  </script>
+
 </body>
 
 </html>
